@@ -1,0 +1,6 @@
+{
+  "files.associations": { "*.asm": "nhl-m68k", "*.inc": "nhl-m68k", "*.mac": "nhl-m68k" },
+  "[nhl-m68k]": { "editor.colorDecorators": false },
+  "colorHighlight.languages": [],
+  "editor.colorDecorators": false
+}

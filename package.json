@@ -1,0 +1,33 @@
+{
+  "name": "nhl-asm",
+  "displayName": "NHL disassembly assembly (68000 / 65816)",
+  "description": "Syntax highlighting for the NHL Genesis (SNASM68K) and SNES (asar) disassembly repos. Numbers are plain numbers: nothing here is a colour.",
+  "version": "1.0.0",
+  "publisher": "nhl-disasm",
+  "engines": { "vscode": "^1.60.0" },
+  "categories": ["Programming Languages"],
+  "contributes": {
+    "languages": [
+      {
+        "id": "nhl-m68k",
+        "aliases": ["NHL 68000 (SNASM68K)", "nhl-m68k"],
+        "extensions": [".mac68k"],
+        "configuration": "./language-configuration-m68k.json"
+      },
+      {
+        "id": "nhl-65816",
+        "aliases": ["NHL 65816 (asar)", "nhl-65816"],
+        "extensions": [".mac65816"],
+        "configuration": "./language-configuration-65816.json"
+      }
+    ],
+    "grammars": [
+      { "language": "nhl-m68k", "scopeName": "source.nhl-m68k", "path": "./syntaxes/nhl-m68k.tmLanguage.json" },
+      { "language": "nhl-65816", "scopeName": "source.nhl-65816", "path": "./syntaxes/nhl-65816.tmLanguage.json" }
+    ],
+    "configurationDefaults": {
+      "[nhl-m68k]": { "editor.colorDecorators": false, "editor.insertSpaces": false, "editor.tabSize": 4, "editor.rulers": [110], "editor.wordWrap": "off" },
+      "[nhl-65816]": { "editor.colorDecorators": false, "editor.insertSpaces": false, "editor.tabSize": 4, "editor.rulers": [110], "editor.wordWrap": "off" }
+    }
+  }
+}

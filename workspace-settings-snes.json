@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.asm": "nhl-65816",
+    "*.mac": "nhl-65816"
+  },
+  "[nhl-65816]": {
+    "editor.colorDecorators": false
+  },
+  "colorHighlight.languages": [],
+  "editor.colorDecorators": false
+}

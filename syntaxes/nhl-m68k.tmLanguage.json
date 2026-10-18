@@ -1,0 +1,53 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "NHL 68000 (SNASM68K)",
+  "scopeName": "source.nhl-m68k",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#label" },
+    { "include": "#directive" },
+    { "include": "#mnemonic" },
+    { "include": "#operand" }
+  ],
+  "repository": {
+    "comment": {
+      "patterns": [
+        { "name": "comment.line.semicolon.nhl-m68k", "match": ";.*$" },
+        { "name": "comment.line.star.nhl-m68k", "match": "^\\*.*$" }
+      ]
+    },
+    "label": {
+      "patterns": [
+        { "match": "^(\\.?[A-Za-z_@][A-Za-z0-9_@.]*)(:{0,2})(?=\\s|$|;)(?!\\s+(?i:equ|set|rs\\.[bwl]|=)\\b)",
+          "captures": { "1": { "name": "entity.name.function.label.nhl-m68k" }, "2": { "name": "punctuation.separator.nhl-m68k" } } },
+        { "match": "^(\\.?[A-Za-z_@][A-Za-z0-9_@.]*)(?=\\s+(?i:equ|set|rs\\.[bwl]|=)\\b)",
+          "name": "variable.other.constant.nhl-m68k" }
+      ]
+    },
+    "directive": {
+      "patterns": [
+        { "name": "keyword.control.directive.nhl-m68k",
+          "match": "(?i)(?<![\\w.])(?:include|incbin|org|even|cnop|align|opt|section|xdef|xref|end|rsset|rsreset|equ|set|macro|endm|mexit|if|ifd|ifnd|ifeq|ifne|else|elseif|endif|rept|endr|dc|dcb|ds|rs|pix|pix1)(?:\\.[bwls])?(?![\\w])" }
+      ]
+    },
+    "mnemonic": {
+      "patterns": [
+        { "match": "(?i)(?<![\\w.$#])(?:abcd|add[aiqx]?|and[i]?|as[lr]|b(?:cc|cs|eq|ge|gt|hi|le|ls|lt|mi|ne|pl|vc|vs|ra|sr|chg|clr|set|tst)|chk|clr|cmp[aim]?|db(?:cc|cs|eq|f|ge|gt|hi|le|ls|lt|mi|ne|pl|t|vc|vs|ra)|div[su]|eor[i]?|exg|ext|illegal|jmp|jsr|lea|link|ls[lr]|move[acmpq]?|mul[su]|nbcd|neg[x]?|nop|not|or[i]?|pea|reset|ro[lr]|rox[lr]|rt[res]|sbcd|s(?:cc|cs|eq|f|ge|gt|hi|le|ls|lt|mi|ne|pl|t|vc|vs)|stop|sub[aiqx]?|swap|tas|trap[v]?|tst|unlk)(?:\\.[bwls])?(?![\\w])",
+          "name": "keyword.other.mnemonic.nhl-m68k" }
+      ]
+    },
+    "operand": {
+      "patterns": [
+        { "name": "string.quoted.double.nhl-m68k", "begin": "\"", "end": "\"" },
+        { "name": "string.quoted.single.nhl-m68k", "begin": "'", "end": "'" },
+        { "name": "variable.language.register.nhl-m68k", "match": "(?i)(?<![\\w.$])(?:[da][0-7]|sp|sr|ccr|pc|usp)(?![\\w])" },
+        { "name": "constant.numeric.hex.nhl-m68k", "match": "\\$[0-9A-Fa-f]+" },
+        { "name": "constant.numeric.binary.nhl-m68k", "match": "%[01]+(?![\\w])" },
+        { "name": "constant.numeric.decimal.nhl-m68k", "match": "(?<![\\w.$])\\d+(?![\\w])" },
+        { "name": "support.constant.local-label.nhl-m68k", "match": "(?<![\\w)\\]])\\.[A-Za-z0-9_]+" },
+        { "name": "keyword.operator.nhl-m68k", "match": "<<|>>|[-+*/&|^~#<>=!]" },
+        { "name": "variable.other.nhl-m68k", "match": "[A-Za-z_@][A-Za-z0-9_@]*" }
+      ]
+    }
+  }
+}
