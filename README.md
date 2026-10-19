@@ -6,6 +6,15 @@ Syntax highlighting and go-to-include for the NHL Genesis and SNES disassembly r
 [NHL96Genesis](https://github.com/abdulahmad/NHL96Genesis), [NHLPA93SNES](https://github.com/abdulahmad/NHLPA93SNES),
 [NHL94SNES](https://github.com/abdulahmad/NHL94SNES)).
 
+## Screenshots
+
+SNES (`nhl-65816`, asar) on the left, Genesis (`nhl-m68k`, SNASM68K) on the right: the same All Stars West team record in both disassemblies.
+Hex values are plain numbers, not colour swatches; macros are orange; `incbin` paths are links you can ctrl+click.
+
+| SNES | Genesis |
+| --- | --- |
+| ![All Stars West in the SNES disassembly](images/screenshot-snes.png) | ![All Stars West in the Genesis disassembly](images/screenshot-genesis.png) |
+
 Two language modes for the disassembly repos, which all use `.asm`:
 
 | Mode id | Repos | Assembler |
