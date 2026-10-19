@@ -46,3 +46,7 @@ numbers like any other, so a data row is one colour.
 `files.associations` in `.vscode/settings.json` applies to every matching file in the repo, so no per-file
 "Change Language Mode" is needed. For one folder only, put another `.vscode/settings.json` in a
 parent folder opened as its own workspace, or use a more specific glob such as `"src/**/*.asm": "nhl-m68k"`.
+
+## Mode selection without settings
+
+The extension also claims files by folder name: any `.asm`/`.mac`/`.inc` under a folder whose name contains `genesis` gets `nhl-m68k`, and under a folder containing `snes` gets `nhl-65816` (case-insensitive). So the mode is chosen even when the repo is not the workspace root (for example a parent folder holding all repos). `.vscode/settings.json` still wins when the repo is the root.
