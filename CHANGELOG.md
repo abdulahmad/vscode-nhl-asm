@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0
+
+- Hover an equate, label or macro to see its definition and, for an equate, its value.
+- Ctrl+click / F12 on one goes to its definition (no underline until Ctrl is held).
+
 ## 1.3.1
 
 - First release from its own repository (moved from `nhl-disasm-report/vscode/nhl-asm`, history kept).

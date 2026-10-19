@@ -37,6 +37,16 @@ such as `Extracted/` before the first build, get no link.
 The path is coloured as a string in every mode, quoted (`"../x.pal"`, scoped `string.quoted.*`) or bare (`..\x.pal`,
 scoped `string.unquoted.path`), so Genesis and SNES include lines look the same.
 
+## Hover and go to definition
+
+Hover an equate, label or macro name to see its definition line and the file it is in. For an equate the number is worked out
+too, following other equates and `+ - * / << >> & |` arithmetic (`JoyPad = $0776` shows `$0776 (1910)`). Ctrl+click (or F12)
+goes to the definition. Nothing is underlined until you hold Ctrl.
+
+Definitions are found in every `.asm`, `.inc` and `.mac` file of the workspace (not `Extracted/`), and only in the repo the file
+belongs to when a parent folder holds several repos. Local labels (`.x`, `@x`, `?x`), comments and strings are skipped.
+An equate is `name equ value`, `name = value`, `name set value` or `name rs.w n`; a label is a name in column 0.
+
 ## Install
 
 From the Marketplace: search Extensions for **NHL disassembly assembly**, or run
