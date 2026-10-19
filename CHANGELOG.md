@@ -3,7 +3,7 @@
 ## 1.3.1
 
 - First release from its own repository (moved from `nhl-disasm-report/vscode/nhl-asm`, history kept).
-- Publisher `abdulahmad`, MIT licence, icon, Marketplace metadata.
+- Publisher `Abdul-HaseebAhmad`, MIT licence, icon, Marketplace metadata.
 - Bare `include`/`incbin`/`incsrc` paths are coloured as strings, like quoted ones.
 
 ## 1.3.0

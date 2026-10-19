@@ -40,9 +40,9 @@ scoped `string.unquoted.path`), so Genesis and SNES include lines look the same.
 ## Install
 
 From the Marketplace: search Extensions for **NHL disassembly assembly**, or run
-`code --install-extension abdulahmad.nhl-asm`. VSCodium and other Open VSX editors get it from Open VSX under the same id.
+`code --install-extension Abdul-HaseebAhmad.nhl-asm`. VSCodium and other Open VSX editors get it from Open VSX under the same id.
 
-Each disassembly repo lists `abdulahmad.nhl-asm` in `.vscode/extensions.json`, so VS Code offers to install it when you open
+Each disassembly repo lists `Abdul-HaseebAhmad.nhl-asm` in `.vscode/extensions.json`, so VS Code offers to install it when you open
 the repo. After installing, close all tabs and reload the window. If another extension (Amiga Assembly) still claims `.asm`,
 the extension is not installed: check Extensions for "NHL 68000".
 

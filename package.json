@@ -3,7 +3,7 @@
   "displayName": "NHL disassembly assembly (68000 / 65816)",
   "description": "Syntax highlighting and ctrl+click on include/incbin paths for the NHL Genesis (SNASM68K) and SNES (asar) disassembly repos. Numbers are plain numbers: nothing here is a colour.",
   "version": "1.3.1",
-  "publisher": "abdulahmad",
+  "publisher": "Abdul-HaseebAhmad",
   "license": "MIT",
   "icon": "images/icon.png",
   "repository": {
