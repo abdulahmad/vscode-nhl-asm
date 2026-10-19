@@ -33,3 +33,16 @@ block, SNES repos the 65816 block); each repo already ships the right file. Anot
 
 `cd test && npm i vscode-textmate vscode-oniguruma && node tokenize.js` prints the scope of every token for
 sample lines.
+
+## Colours
+
+Macro names (`hex2`, `String`, `PIX`, `%Player(...)`, and the name after `macro`) get the scope
+`entity.name.function.macro`; the workspace settings colour it orange (`#F0883E`). Change it in
+`.vscode/settings.json` under `editor.tokenColorCustomizations`. Bare hex arguments of a macro call (`hex2 351d,daa0`) are
+numbers like any other, so a data row is one colour.
+
+## Setting the mode for a whole repo or folder
+
+`files.associations` in `.vscode/settings.json` applies to every matching file in the repo, so no per-file
+"Change Language Mode" is needed. For one folder only, put another `.vscode/settings.json` in a
+parent folder opened as its own workspace, or use a more specific glob such as `"src/**/*.asm": "nhl-m68k"`.

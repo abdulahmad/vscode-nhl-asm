@@ -1,6 +1,24 @@
 {
-  "files.associations": { "*.asm": "nhl-m68k", "*.inc": "nhl-m68k", "*.mac": "nhl-m68k" },
-  "[nhl-m68k]": { "editor.colorDecorators": false },
+  "files.associations": {
+    "*.asm": "nhl-m68k",
+    "*.inc": "nhl-m68k",
+    "*.mac": "nhl-m68k"
+  },
+  "[nhl-m68k]": {
+    "editor.colorDecorators": false
+  },
   "colorHighlight.languages": [],
-  "editor.colorDecorators": false
+  "editor.colorDecorators": false,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "entity.name.function.macro"
+        ],
+        "settings": {
+          "foreground": "#F0883E"
+        }
+      }
+    ]
+  }
 }

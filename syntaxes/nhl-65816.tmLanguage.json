@@ -26,6 +26,17 @@
     "label": {
       "patterns": [
         {
+          "match": "(?i)^(\\s*macro\\s+)([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.directive.nhl-65816"
+            },
+            "2": {
+              "name": "entity.name.function.macro.nhl-65816"
+            }
+          }
+        },
+        {
           "match": "^\\s*([.?]?[A-Za-z_][A-Za-z0-9_]*)(:)",
           "captures": {
             "1": {
@@ -64,6 +75,10 @@
     },
     "operand": {
       "patterns": [
+        {
+          "name": "storage.modifier.size.nhl-65816",
+          "match": "(?<=[)\\]])\\.[bwl](?![\\w])"
+        },
         {
           "name": "string.quoted.double.nhl-65816",
           "begin": "\"",

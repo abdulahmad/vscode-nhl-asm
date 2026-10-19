@@ -7,5 +7,17 @@
     "editor.colorDecorators": false
   },
   "colorHighlight.languages": [],
-  "editor.colorDecorators": false
+  "editor.colorDecorators": false,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "entity.name.function.macro"
+        ],
+        "settings": {
+          "foreground": "#F0883E"
+        }
+      }
+    ]
+  }
 }
