@@ -1,5 +1,11 @@
 # NHL assembly modes for VS Code
 
+Syntax highlighting and go-to-include for the NHL Genesis and SNES disassembly repos
+([NHL92Genesis](https://github.com/abdulahmad/NHL92Genesis), [NHLPA93Genesis](https://github.com/abdulahmad/NHLPA93Genesis),
+[NHL94Genesis](https://github.com/abdulahmad/NHL94Genesis), [NHL95Genesis](https://github.com/abdulahmad/NHL95Genesis),
+[NHL96Genesis](https://github.com/abdulahmad/NHL96Genesis), [NHLPA93SNES](https://github.com/abdulahmad/NHLPA93SNES),
+[NHL94SNES](https://github.com/abdulahmad/NHL94SNES)).
+
 Two language modes for the disassembly repos, which all use `.asm`:
 
 | Mode id | Repos | Assembler |
@@ -24,19 +30,26 @@ scoped `string.unquoted.path`), so Genesis and SNES include lines look the same.
 
 ## Install
 
-Windows (cmd or PowerShell), from the repo root: `vscode\install.cmd` (PowerShell: `.\vscode\install.cmd`); it runs `code --install-extension vscode/nhl-asm.vsix`. Then close all tabs and reload the window. Rebuild the `.vsix` after changing the grammar: `cd vscode/nhl-asm && npx @vscode/vsce package --allow-missing-repository --skip-license -o ../nhl-asm.vsix`. If another extension (Amiga Assembly) still claims `.asm`, the extension is not installed: check Extensions for "NHL 68000".
+From the Marketplace: search Extensions for **NHL disassembly assembly**, or run
+`code --install-extension abdulahmad.nhl-asm`. VSCodium and other Open VSX editors get it from Open VSX under the same id.
 
-macOS/Linux:
+Each disassembly repo lists `abdulahmad.nhl-asm` in `.vscode/extensions.json`, so VS Code offers to install it when you open
+the repo. After installing, close all tabs and reload the window. If another extension (Amiga Assembly) still claims `.asm`,
+the extension is not installed: check Extensions for "NHL 68000".
 
-```
-ln -s "$PWD" ~/.vscode/extensions/nhl-asm        # or copy the folder; restart VS Code
-```
+From source: `npm run package` here builds `nhl-asm-<version>.vsix`; install it with `code --install-extension nhl-asm-<version>.vsix`
+(or Extensions > ... > Install from VSIX). Every push also builds the `.vsix` in GitHub Actions (download it from the run's
+artifacts), and a `v*` tag attaches it to a GitHub release.
 
-(`code --install-extension` needs a packaged `.vsix`: `npx @vscode/vsce package` in this folder.)
+## Release
+
+1. Bump `version` in `package.json` and add a `CHANGELOG.md` entry.
+2. `npx @vscode/vsce publish` (Marketplace) and `npx ovsx publish -p <token>` (Open VSX).
+3. `git tag v<version> && git push --tags` to attach the `.vsix` to a GitHub release.
 
 ## Use in a repo
 
-Copy `workspace-settings-genesis.json` or `workspace-settings-snes.json` to the repo's `.vscode/settings.json` (Genesis repos use the m68k
+Copy `workspace-settings-genesis.json` or `workspace-settings-snes.json` (in this repo) to the repo's `.vscode/settings.json` (Genesis repos use the m68k
 block, SNES repos the 65816 block); each repo already ships the right file. Another colour extension
 (Color Highlight, etc.) can still paint `#ff0000`-looking text; the settings turn those off for these modes.
 

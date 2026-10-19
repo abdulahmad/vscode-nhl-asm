@@ -3,12 +3,39 @@
   "displayName": "NHL disassembly assembly (68000 / 65816)",
   "description": "Syntax highlighting and ctrl+click on include/incbin paths for the NHL Genesis (SNASM68K) and SNES (asar) disassembly repos. Numbers are plain numbers: nothing here is a colour.",
   "version": "1.3.1",
-  "publisher": "nhl-disasm",
+  "publisher": "abdulahmad",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abdulahmad/vscode-nhl-asm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abdulahmad/vscode-nhl-asm/issues"
+  },
+  "homepage": "https://github.com/abdulahmad/vscode-nhl-asm#readme",
+  "galleryBanner": {
+    "color": "#102A54",
+    "theme": "dark"
+  },
   "engines": {
     "vscode": "^1.60.0"
   },
   "categories": [
     "Programming Languages"
+  ],
+  "keywords": [
+    "assembly",
+    "68000",
+    "m68k",
+    "65816",
+    "snes",
+    "genesis",
+    "mega drive",
+    "snasm68k",
+    "asar",
+    "nhl",
+    "disassembly"
   ],
   "main": "./extension.js",
   "activationEvents": [
@@ -107,5 +134,10 @@
         "editor.wordWrap": "off"
       }
     }
+  },
+  "scripts": {
+    "package": "npx --yes @vscode/vsce package",
+    "publish:vsce": "npx --yes @vscode/vsce publish",
+    "publish:ovsx": "npx --yes ovsx publish"
   }
 }

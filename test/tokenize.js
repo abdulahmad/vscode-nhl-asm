@@ -1,7 +1,7 @@
 const fs=require('fs'),vt=require('vscode-textmate'),on=require('vscode-oniguruma');
 const wasm=fs.readFileSync(require.resolve('vscode-oniguruma/release/onig.wasm')).buffer;
 const lib=on.loadWASM(wasm).then(()=>({createOnigScanner:p=>new on.OnigScanner(p),createOnigString:s=>new on.OnigString(s)}));
-const D='/home/user/nhl-disasm-report/vscode/nhl-asm/syntaxes/';
+const D=require('path').join(__dirname,'..','syntaxes')+'/';
 const reg=new vt.Registry({onigLib:lib,loadGrammar:async s=>{const f={'source.nhl-m68k':'nhl-m68k','source.nhl-65816':'nhl-65816'}[s];return vt.parseRawGrammar(fs.readFileSync(D+f+'.tmLanguage.json','utf8'),f+'.json')}});
 (async()=>{
 for(const [sc,lines] of [['source.nhl-m68k',[

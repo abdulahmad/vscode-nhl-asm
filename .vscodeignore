@@ -1,2 +1,7 @@
+.github/**
+.gitignore
 test/**
+tools/**
+node_modules/**
+*.vsix
 workspace-settings-*.json
