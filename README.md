@@ -13,6 +13,10 @@ Numbers (`$FF00FF`, `%1010`, `12`) are scoped `constant.numeric.*` and the modes
 
 ## Install
 
+Windows (cmd or PowerShell), from the repo root: `vscode\install.cmd` (PowerShell: `.\vscode\install.cmd`). Then restart VS Code.
+
+macOS/Linux:
+
 ```
 ln -s "$PWD" ~/.vscode/extensions/nhl-asm        # or copy the folder; restart VS Code
 ```
