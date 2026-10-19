@@ -75,6 +75,17 @@
     "directive": {
       "patterns": [
         {
+          "match": "(?i)(?<![\\w.$#!])(include|incbin|incsrc)(\\s+)([^\\s;,\"']+)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.directive.nhl-asm"
+            },
+            "3": {
+              "name": "string.unquoted.path.nhl-asm"
+            }
+          }
+        },
+        {
           "name": "keyword.control.directive.nhl-asm",
           "match": "(?i)(?<![\\w.$#!])(?:include|incbin|org|even|cnop|align|opt|section|xdef|xref|end|rsset|rsreset|equ|set|macro|endm|mexit|if|ifd|ifnd|ifeq|ifne|else|elseif|endif|rept|endr|dc|dcb|ds|rs|db|dw|dl|dd|incsrc|incbin|org|base|pad|padbyte|fill|fillbyte|skip|lorom|hirom|exlorom|norom|sa1rom|arch|asar|math|print|assert|warnpc|warn|error|check|bankcross|if|elseif|else|endif|while|endwhile|macro|endmacro|namespace|pushpc|pullpc|pushbase|pullbase|struct|endstruct|freecode|freedata|autoclean|cleartable|table|cleartable|optimize|bank|function|undef|def)(?:\\.[bwls])?(?![\\w])"
         }

@@ -56,6 +56,17 @@
     "directive": {
       "patterns": [
         {
+          "match": "(?i)(?<![\\w.$#!])(incsrc|incbin)(\\s+)([^\\s;,\"']+)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.directive.nhl-65816"
+            },
+            "3": {
+              "name": "string.unquoted.path.nhl-65816"
+            }
+          }
+        },
+        {
           "name": "keyword.control.directive.nhl-65816",
           "match": "(?i)(?<![\\w.$#!])(?:db|dw|dl|dd|incsrc|incbin|org|base|pad|padbyte|fill|fillbyte|skip|lorom|hirom|exlorom|norom|sa1rom|arch|asar|math|print|assert|warnpc|warn|error|check|bankcross|if|elseif|else|endif|while|endwhile|macro|endmacro|namespace|pushpc|pullpc|pushbase|pullbase|struct|endstruct|freecode|freedata|autoclean|cleartable|table|cleartable|optimize|bank|function|undef|def)(?![\\w])"
         },

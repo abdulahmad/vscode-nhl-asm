@@ -61,6 +61,17 @@
     "directive": {
       "patterns": [
         {
+          "match": "(?i)(?<![\\w.])(include|incbin)(\\s+)([^\\s;,\"']+)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.directive.nhl-m68k"
+            },
+            "3": {
+              "name": "string.unquoted.path.nhl-m68k"
+            }
+          }
+        },
+        {
           "name": "keyword.control.directive.nhl-m68k",
           "match": "(?i)(?<![\\w.])(?:include|incbin|org|even|cnop|align|opt|section|xdef|xref|end|rsset|rsreset|equ|set|macro|endm|mexit|if|ifd|ifnd|ifeq|ifne|else|elseif|endif|rept|endr|dc|dcb|ds|rs)(?:\\.[bwls])?(?![\\w])"
         }

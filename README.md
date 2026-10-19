@@ -19,6 +19,9 @@ folders above it are tried, then the path without its leading `../` (so the SNES
 `Extracted/` at the repo root). `\` separators and a different case (`Main93.Asm`) are accepted. Files that do not exist yet,
 such as `Extracted/` before the first build, get no link.
 
+The path is coloured as a string in every mode, quoted (`"../x.pal"`, scoped `string.quoted.*`) or bare (`..\x.pal`,
+scoped `string.unquoted.path`), so Genesis and SNES include lines look the same.
+
 ## Install
 
 Windows (cmd or PowerShell), from the repo root: `vscode\install.cmd` (PowerShell: `.\vscode\install.cmd`); it runs `code --install-extension vscode/nhl-asm.vsix`. Then close all tabs and reload the window. Rebuild the `.vsix` after changing the grammar: `cd vscode/nhl-asm && npx @vscode/vsce package --allow-missing-repository --skip-license -o ../nhl-asm.vsix`. If another extension (Amiga Assembly) still claims `.asm`, the extension is not installed: check Extensions for "NHL 68000".

@@ -19,8 +19,9 @@ def alt(rx, start):
 
 m_mn = alt(m['repository']['mnemonic']['patterns'][0]['match'], 'abcd')
 s_mn = alt(s['repository']['mnemonic']['patterns'][0]['match'], 'adc')
-m_dr = alt(m['repository']['directive']['patterns'][0]['match'], 'include')
-s_dr = alt(s['repository']['directive']['patterns'][0]['match'], 'db')
+kw = lambda g: next(p for p in g['repository']['directive']['patterns'] if p.get('name', '').startswith('keyword.'))
+m_dr = alt(kw(m)['match'], 'include')
+s_dr = alt(kw(s)['match'], 'db')
 MN = m_mn + '|' + s_mn
 DR = m_dr + '|' + s_dr
 SUF = '(?:\\.[bwls])?'
@@ -58,7 +59,10 @@ g = {
      "captures": {"1": {"name": sc("entity.name.function.label")}, "2": {"name": sc("punctuation.separator")}}},
     {"match": "^([.?]?[A-Za-z_@][A-Za-z0-9_@.]*)(?=\\s|$|;)",
      "name": sc("entity.name.function.label")}]},
-  "directive": {"patterns": [{"name": sc("keyword.control.directive"),
+  "directive": {"patterns": [
+    {"match": "(?i)(?<![\\w.$#!])(include|incbin|incsrc)(\\s+)([^\\s;,\"']+)",
+     "captures": {"1": {"name": sc("keyword.control.directive")}, "3": {"name": sc("string.unquoted.path")}}},
+    {"name": sc("keyword.control.directive"),
      "match": "(?i)(?<![\\w.$#!])(?:" + DR + ")" + SUF + "(?![\\w])"}]},
   "mnemonic": {"patterns": [{"name": sc("keyword.other.mnemonic"),
      "match": "(?i)(?<![\\w.$#!<?])(?:" + MN + ")" + SUF + "(?![\\w])"}]},
