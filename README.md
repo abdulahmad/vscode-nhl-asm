@@ -50,3 +50,11 @@ parent folder opened as its own workspace, or use a more specific glob such as `
 ## Mode selection without settings
 
 The extension also claims files by folder name: any `.asm`/`.mac`/`.inc` under a folder whose name contains `genesis` gets `nhl-m68k`, and under a folder containing `snes` gets `nhl-65816` (case-insensitive). So the mode is chosen even when the repo is not the workspace root (for example a parent folder holding all repos). `.vscode/settings.json` still wins when the repo is the root.
+
+## Combined mode
+
+`nhl-asm` ("NHL assembly (68000 + 65816)") is one grammar for both families: labels with or without a colon, `equ`/`rs.w`/`=` equates,
+the union of the 68000 and 65816 mnemonics and directives, `%Macro(...)` and bare macro calls, and the same colours as the
+specific modes. Use it for a folder that mixes Genesis and SNES sources: `"files.associations": { "*.asm": "nhl-asm" }`.
+The specific modes stay more precise (for example `a`, `x`, `y` are registers only in `nhl-65816`). `tools/gen_combined.py` rebuilds
+`syntaxes/nhl-asm.tmLanguage.json` from the other two grammars; run it after changing their mnemonic or directive lists.
